@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="../css/blueprint/screen.css" />
+		<link rel="stylesheet" href="../css/blueprint/plugins/buttons/screen.css" />
+		<link rel="stylesheet" href="../css/blueprint/plugins/link-icons/screen.css" />
+	</head>
+	
+	<body>
+		<div class="container prepend-top">
+			<div id="global_messages">
+				<div class="success">Success message</div>
+				<div class="error">Error message</div>
+			</div>
+			<div id="bug_form">
+				<form action="../../addBug" method="post">  
+					<p>
+						<label>Title:</label><br />
+						<input type="text" name="name" />
+					</p>
+					<p>
+						<label>Severity:</label><br />
+						<select>
+							<option>S1</option>
+							<option>S2</option>
+							<option>S3</option>
+							<option>S4</option>
+						</select>
+					</p>
+					<p>
+						<label>Assigned To:</label><br />
+						<input type="text" name="assigned"/>
+					</p>
+					<p>
+						<label>Description:</label><br />
+						<input type="text" name="description" />
+					</p>
+					<p>
+						<input type="submit" class="button" value="Submit"/>
+						<a href="bug_list.html" class="button">Back</a>
+					</p>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

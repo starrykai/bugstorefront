@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+  ~ [y] hybris Platform
+  ~ 
+  ~ Copyright (c) 2000-2016 SAP SE
+  ~ All rights reserved.
+  ~ 
+  ~ This software is the confidential and proprietary information of SAP 
+  ~ Hybris ("Confidential Information"). You shall not disclose such 
+  ~ Confidential Information and shall use it only in accordance with the 
+  ~ terms of the license agreement you entered into with SAP Hybris.
+  -->
+<!--
+	ATTENTION: This is just an example file. You have to edit it according to your needs.
+-->
+
+<items 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			xsi:noNamespaceSchemaLocation="items.xsd">
+
+	<enumtypes>
+		<enumtype code="BugSeverityType" generate="true" autocreate="true" dynamic="false" >
+			<value code="S1" />
+			<value code="S2" />
+			<value code="S3" />
+			<value code="S4" />
+		</enumtype>
+	</enumtypes>
+	
+	<relations>
+		<relation code="BugCommentRelation" localized="false" generate="true" autocreate="true" >
+			<sourceElement type="Bug" qualifier="bug" cardinality="one" />
+			<targetElement type="BugComment" qualifier="bugComments" cardinality="many" />
+		</relation>
+	</relations>
+	
+	<itemtypes>
+		<itemtype code="Bug" generate="true" autocreate="true" >
+				<deployment table="StorefrontBug" typecode="10205" />
+				<attributes>
+					<attribute qualifier="code" type="java.lang.String" >
+						<persistence type="property" />
+						<modifiers optional="true" unique="true" />
+					</attribute>
+	
+					<attribute qualifier="severity" type="BugSeverityType" >
+						<persistence type="property" />
+						<defaultvalue>em().getEnumerationValue("SeverityType", "S1")</defaultvalue>
+					</attribute>
+	
+					<attribute qualifier="assigned" type="java.lang.String" >
+						<persistence type="property" />
+						<modifiers optional="true" unique="true" />
+					</attribute>
+	
+					<attribute qualifier="description" type="java.lang.String" >
+						<persistence type="property" />
+						<modifiers optional="true" unique="true" />
+					</attribute>
+				</attributes>
+		</itemtype>
+
+		<itemtype code="BugComment" generate="true" autocreate="true" >
+			<deployment table="StorefrontComment" typecode="10204" />
+			<attributes>
+				<attribute qualifier="username" type="java.lang.String" >
+					<persistence type="property" />
+					<modifiers optional="true" unique="true" />
+				</attribute>
+
+				<attribute qualifier="content" type="java.lang.String" >
+					<persistence type="property" />
+					<modifiers optional="true" unique="true" />
+				</attribute>
+			</attributes>
+		</itemtype>
+		
+	</itemtypes>
+</items>
